@@ -1,0 +1,26 @@
+<Solution>
+  <Folder Name="/GUIs/" />
+  <Folder Name="/Helpers/">
+    <Project Path="Helpers/Helpers.Common/Helpers.Common.csproj" />
+    <Project Path="Helpers/Helpers.SourceGenerator/Helpers.SourceGenerator.csproj" Id="cf28087c-266b-47b7-b5ba-574ce1e953bf" />
+    <Project Path="Helpers/Helpers.Web/Helpers.Web.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/" />
+  <Folder Name="/Infrastructure/k8s/">
+    <File Path="test.yaml" />
+  </Folder>
+  <Folder Name="/PaymentsService/">
+    <Project Path="Expenses.Api/Payments.Api.csproj" Id="ccfbf957-62dd-4221-882b-858e4d3c3f20" />
+    <Project Path="Expenses.Application/Payments.Application.csproj" Id="97d7981e-84a3-4818-ba07-819571148f28" />
+    <Project Path="Expenses.Domain/Payments.Domain.csproj" Id="351d2964-0508-4373-ab37-06877ffc6049" />
+    <Project Path="Expenses.Infrastructure/Payments.Infrastructure.csproj" Id="5941f896-c00d-41b4-8210-ff74bfe0c623" />
+    <Project Path="Expenses.Tests/Payments.Tests.csproj" Id="4f0bf6ca-6dd0-43a6-9d3e-580c5e4448d2" />
+  </Folder>
+  <Folder Name="/ProductsService/">
+    <Project Path="Products.Api/Products.Api.csproj" Id="3a6f3739-6d66-4daa-bffa-aaa2d0cf7048" />
+    <Project Path="Products.Application/Products.Application.csproj" Id="70a51997-663d-42d5-a875-1c5519950d02" />
+    <Project Path="Products.Domain/Products.Domain.csproj" Id="2a3d31ef-f903-4010-bfad-5e5b14e3a371" />
+    <Project Path="Products.Infrastructure/Products.Infrastructure.csproj" Id="fef75943-ffd1-4566-86fc-9632e17a83ef" />
+    <Project Path="Products.Tests/Products.Tests.csproj" Id="d2388adb-9dca-40bb-9cd1-cb94da1b0bf0" />
+  </Folder>
+</Solution>

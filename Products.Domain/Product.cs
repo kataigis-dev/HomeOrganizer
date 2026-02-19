@@ -18,7 +18,7 @@ public class Product : IDomainModel
             {
                 {
                     translationHandler.Others[nameof(Product)][nameof(Expiration)],
-                    () => !Expiration.HasValue || Expiration.Value.Date <= DateTimeOffset.UtcNow.Date
+                    () => !Expiration.HasValue || Expiration.Value.Date >= DateTimeOffset.UtcNow.Date
                 },
                 {
                     translationHandler.Generic.NameIsRequired,

@@ -1,0 +1,67 @@
+# Example values for production environment
+replicaCount: 3
+
+image:
+  repository: your-registry.azurecr.io/products-api  # Replace with your registry
+  pullPolicy: IfNotPresent
+  tag: "1.0.0"  # Use specific version tags in production
+
+imagePullSecrets:
+  - name: registry-secret  # Secret containing registry credentials
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 1Gi
+  requests:
+    cpu: 500m
+    memory: 512Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 20
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  hosts:
+    - host: products.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: products-tls
+      hosts:
+        - products.example.com
+
+env:
+  - name: ASPNETCORE_ENVIRONMENT
+    value: "Production"
+  - name: ASPNETCORE_URLS
+    value: "http://+:8080"
+  # Example: Database connection from secret
+  # - name: ConnectionStrings__DefaultConnection
+  #   valueFrom:
+  #     secretKeyRef:
+  #       name: products-secrets
+  #       key: database-connection-string
+
+# Node affinity to prefer specific node pools
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                  - products-service
+          topologyKey: kubernetes.io/hostname

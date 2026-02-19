@@ -19,7 +19,7 @@ public abstract class BaseCrudsController<TFilters, TResponse, TDetailedResponse
     private readonly IApplicationService<TFilters, TResponse, TDetailedResponse, TRequest> _svc;
     private readonly ITranslationHandler _translationHandler;
 
-    private BaseCrudsController(
+    protected BaseCrudsController(
         ILogger logger,
         IApplicationService<TFilters, TResponse, TDetailedResponse, TRequest> svc,
         ITranslationHandler translationHandler)

@@ -8,6 +8,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Helpers\Helpers.SourceGenerator\Helpers.SourceGenerator.csproj" />
+		<ProjectReference Include="..\Helpers\Helpers.Web\Helpers.Web.csproj" />
 		<ProjectReference Include="..\Products.Domain\Products.Domain.csproj" />
 		<ProjectReference Include="..\Products.Infrastructure\Products.Infrastructure.csproj" />
 	</ItemGroup>

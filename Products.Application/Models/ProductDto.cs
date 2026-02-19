@@ -23,7 +23,7 @@ public class ProductDto : IValidate
                 },
                 {
                     translationHandler.Others[nameof(Product)][nameof(Expiration)],
-                    () => !Expiration.HasValue || Expiration.Value.Date <= DateTimeOffset.UtcNow.Date
+                    () => !Expiration.HasValue || Expiration.Value.Date >= DateTimeOffset.UtcNow.Date
                 }
             });
 
